@@ -22,4 +22,5 @@ Marking a request based on a config file
 ```bash
 openssl req -text -nodes -new -config file.conf
 ```
-[Config file documentation from openssl](https://www.openssl.org/docs/manmaster/man5/config.html)
+[Config file documentation from openssl](https://www.openssl.org/docs/manmaster/man5/config.html)\
+[Example configuration file](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=reference-openssl-configuration-examples)
