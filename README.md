@@ -22,4 +22,4 @@ Marking a request based on a config file
 ```bash
 openssl req -text -nodes -new -config file.conf
 ```
-[Config file documentation from openssl](https://www.openssl.org/docs/man1.1.1/man5/config.html)
+[Config file documentation from openssl](https://www.openssl.org/docs/manmaster/man5/config.html)
