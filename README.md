@@ -17,3 +17,9 @@ Making a certificate request, being prompted the different DN elements and displ
 ```bash
 openssl req -text -nodes -new
 ```
+---
+Marking a request based on a config file
+```bash
+openssl req -text -nodes -new -config file.conf
+```
+[Config file documentation from openssl](https://www.openssl.org/docs/man1.1.1/man5/config.html)
