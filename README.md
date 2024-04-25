@@ -25,8 +25,9 @@ openssl req -text -nodes -new -config file.conf
 ---
 Verifying a certificate's validity through OCSP
 ```bash
-openssl ocsp -issuer issuerCA.pem -cert cert.pem -url http://ocsp.pki
+openssl ocsp -CAfile trustchain.pem -issuer issuerCA.pem -cert cert.pem -url http://ocsp.pki
 ```
+Not including the trustchain with the `-CAfile` tag may cause the following error: `Verify error:unable to get local issuer certificate`. 
 
 [Config file documentation from openssl](https://www.openssl.org/docs/manmaster/man5/config.html)\
 [Example configuration file](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=reference-openssl-configuration-examples)
