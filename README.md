@@ -22,15 +22,16 @@ Marking a request based on a config file
 ```bash
 openssl req -text -nodes -new -config file.conf
 ```
----
+
+## OCSP
 Verifying a certificate's validity through OCSP
 ```bash
 openssl ocsp -CAfile trustchain.pem -issuer issuerCA.pem -cert cert.pem -url http://ocsp.pki
 ```
 Not including the trustchain with the `-CAfile` tag may cause the following error: `Verify error:unable to get local issuer certificate`. 
 
-### Make an authentication certificate 
----
+
+## Make an authentication certificate 
 Make a CSR for a user authentication certificate for example.
 ```bash
 openssl req -new -out cert.csr -outform PEM -subj '/CN=User/C=FR/' -newkey rsa:2048 -nodes -keyout key.out -keyform PEM -verbose
@@ -46,5 +47,12 @@ openssl pkcs12 -export -in cert.pem -inkey key.out -out toto.p12
 A password will be required. Once this is done, this .p12 certificate can be imported inside the machine's certificate store along with the private key. 
 This certificate might need to be edited within the certificate store to be trusted for specific use cases such as SSL, EAP...
 
+## Check CRL information
+```bash
+openssl crl -in QASA-Authent-Certificat.crl -inform DER -text
+```
+
+
+## Helper links
 [Config file documentation from openssl](https://www.openssl.org/docs/manmaster/man5/config.html)\
 [Example configuration file](https://www.ibm.com/docs/en/hpvs/1.2.x?topic=reference-openssl-configuration-examples)
